@@ -1,0 +1,492 @@
+{
+    "title": "AdSense Host",
+    "description": "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.",
+    "docsUrl": "https://developers.google.com/adsense/host/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/adsensehost/v4.1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/adsensehost/v4.1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "adsensehost_accounts_list": {
+            "main": "./lib/actions/adsensehost_accounts_list.js",
+            "title": "List hosted accounts associated with this AdSense account by ad client id.",
+            "description": "List hosted accounts associated with this AdSense account by ad client id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_get": {
+            "main": "./lib/actions/adsensehost_accounts_get.js",
+            "title": "Get information about the selected associated AdSense account.",
+            "description": "Get information about the selected associated AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adclients_list": {
+            "main": "./lib/actions/adsensehost_accounts_adclients_list.js",
+            "title": "List all hosted ad clients in the specified hosted account.",
+            "description": "List all hosted ad clients in the specified hosted account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adclients_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adclients_get": {
+            "main": "./lib/actions/adsensehost_accounts_adclients_get.js",
+            "title": "Get information about one of the ad clients in the specified publisher's AdSense account.",
+            "description": "Get information about one of the ad clients in the specified publisher's AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adclients_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adunits_list": {
+            "main": "./lib/actions/adsensehost_accounts_adunits_list.js",
+            "title": "List all ad units in the specified publisher's AdSense account.",
+            "description": "List all ad units in the specified publisher's AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adunits_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adunits_patch": {
+            "main": "./lib/actions/adsensehost_accounts_adunits_patch.js",
+            "title": "Update the supplied ad unit in the specified publisher AdSense account. This method supports patch semantics.",
+            "description": "Update the supplied ad unit in the specified publisher AdSense account. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adunits_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adunits_insert": {
+            "main": "./lib/actions/adsensehost_accounts_adunits_insert.js",
+            "title": "Insert the supplied ad unit into the specified publisher AdSense account.",
+            "description": "Insert the supplied ad unit into the specified publisher AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adunits_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adunits_update": {
+            "main": "./lib/actions/adsensehost_accounts_adunits_update.js",
+            "title": "Update the supplied ad unit in the specified publisher AdSense account.",
+            "description": "Update the supplied ad unit in the specified publisher AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adunits_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adunits_delete": {
+            "main": "./lib/actions/adsensehost_accounts_adunits_delete.js",
+            "title": "Delete the specified ad unit from the specified publisher AdSense account.",
+            "description": "Delete the specified ad unit from the specified publisher AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adunits_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adunits_get": {
+            "main": "./lib/actions/adsensehost_accounts_adunits_get.js",
+            "title": "Get the specified host ad unit in this AdSense account.",
+            "description": "Get the specified host ad unit in this AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adunits_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_adunits_getAdCode": {
+            "main": "./lib/actions/adsensehost_accounts_adunits_getAdCode.js",
+            "title": "Get ad code for the specified ad unit, attaching the specified host custom channels.",
+            "description": "Get ad code for the specified ad unit, attaching the specified host custom channels.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_adunits_getAdCode.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_accounts_reports_generate": {
+            "main": "./lib/actions/adsensehost_accounts_reports_generate.js",
+            "title": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
+            "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_accounts_reports_generate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_adclients_list": {
+            "main": "./lib/actions/adsensehost_adclients_list.js",
+            "title": "List all host ad clients in this AdSense account.",
+            "description": "List all host ad clients in this AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_adclients_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_adclients_get": {
+            "main": "./lib/actions/adsensehost_adclients_get.js",
+            "title": "Get information about one of the ad clients in the Host AdSense account.",
+            "description": "Get information about one of the ad clients in the Host AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_adclients_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_customchannels_list": {
+            "main": "./lib/actions/adsensehost_customchannels_list.js",
+            "title": "List all host custom channels in this AdSense account.",
+            "description": "List all host custom channels in this AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_customchannels_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_customchannels_patch": {
+            "main": "./lib/actions/adsensehost_customchannels_patch.js",
+            "title": "Update a custom channel in the host AdSense account. This method supports patch semantics.",
+            "description": "Update a custom channel in the host AdSense account. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_customchannels_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_customchannels_insert": {
+            "main": "./lib/actions/adsensehost_customchannels_insert.js",
+            "title": "Add a new custom channel to the host AdSense account.",
+            "description": "Add a new custom channel to the host AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_customchannels_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_customchannels_update": {
+            "main": "./lib/actions/adsensehost_customchannels_update.js",
+            "title": "Update a custom channel in the host AdSense account.",
+            "description": "Update a custom channel in the host AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_customchannels_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_customchannels_delete": {
+            "main": "./lib/actions/adsensehost_customchannels_delete.js",
+            "title": "Delete a specific custom channel from the host AdSense account.",
+            "description": "Delete a specific custom channel from the host AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_customchannels_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_customchannels_get": {
+            "main": "./lib/actions/adsensehost_customchannels_get.js",
+            "title": "Get a specific custom channel from the host AdSense account.",
+            "description": "Get a specific custom channel from the host AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_customchannels_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_urlchannels_list": {
+            "main": "./lib/actions/adsensehost_urlchannels_list.js",
+            "title": "List all host URL channels in the host AdSense account.",
+            "description": "List all host URL channels in the host AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_urlchannels_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_urlchannels_insert": {
+            "main": "./lib/actions/adsensehost_urlchannels_insert.js",
+            "title": "Add a new URL channel to the host AdSense account.",
+            "description": "Add a new URL channel to the host AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_urlchannels_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_urlchannels_delete": {
+            "main": "./lib/actions/adsensehost_urlchannels_delete.js",
+            "title": "Delete a URL channel from the host AdSense account.",
+            "description": "Delete a URL channel from the host AdSense account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_urlchannels_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_associationsessions_start": {
+            "main": "./lib/actions/adsensehost_associationsessions_start.js",
+            "title": "Create an association session for initiating an association with an AdSense user.",
+            "description": "Create an association session for initiating an association with an AdSense user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_associationsessions_start.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_associationsessions_verify": {
+            "main": "./lib/actions/adsensehost_associationsessions_verify.js",
+            "title": "Verify an association session after the association callback returns from AdSense signup.",
+            "description": "Verify an association session after the association callback returns from AdSense signup.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_associationsessions_verify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adsensehost_reports_generate": {
+            "main": "./lib/actions/adsensehost_reports_generate.js",
+            "title": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
+            "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adsensehost_reports_generate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

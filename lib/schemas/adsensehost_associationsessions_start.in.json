@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "productCode": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "AFC",
+                    "AFG",
+                    "AFMC",
+                    "AFS",
+                    "AFV"
+                ],
+                "type": "string"
+            }
+        },
+        "userLocale": {
+            "type": "string"
+        },
+        "websiteLocale": {
+            "type": "string"
+        },
+        "websiteUrl": {
+            "required": true,
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

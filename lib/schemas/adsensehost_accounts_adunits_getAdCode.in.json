@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "type": "string"
+        },
+        "adClientId": {
+            "required": true,
+            "type": "string"
+        },
+        "adUnitId": {
+            "required": true,
+            "type": "string"
+        },
+        "hostCustomChannelId": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

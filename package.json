@@ -1,0 +1,15 @@
+{
+    "name": "googleapis-com-adsensehost-connector",
+    "version": "4.1.0",
+    "description": "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}
